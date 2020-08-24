@@ -1,0 +1,47 @@
+---
+title: "Rasch_4_likert_1_NA"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(TAM)
+```
+
+## GitHub Documents
+
+This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
+
+## Including Code
+
+You can include R code in the document as follows:
+
+```{r data_input}
+
+hls2 <- read.csv("data_pre.csv", header = T)
+str(hls2)
+hls2[hls2 =="1"]<- NA
+
+hls2 <- hls2[,2:45]
+
+```
+
+## model fit
+
+```{r fit, include=FALSE}
+
+mod2 <- tam(hls2)
+
+
+```
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r plot, echo=FALSE}
+plot(mod2, type = "items")
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
